@@ -216,6 +216,41 @@ $ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/25332748030
 }
 ```
 
+### Game Clips
+
+> GET /v1/users/:user_id/game-clips
+
+```sh
+~ curl -H "X-Playr-Key: PUTYOURKEYHERE"  http://one.playr.io/v1/users/2533274803087262/game-clips
+```
+
+```json
+[
+  {
+    "id": "5c6c9e15-d189-4474-bf01-173b74e3d9af",
+    "state": "Published",
+    "date_recorded": "2014-04-28T22:42:55Z",
+    "date_last_modified": "2014-04-28T22:54:44.3051123Z",
+    "type": "UserGenerated",
+    "title": {
+      "id": 1292135256,
+      "name": "Titanfall"
+    },
+    "duration":28,
+    "rating": 0,
+    "rating_count": 0,
+    "views": 0,
+    "saved": false,
+    "large_thumbnail_url": "http://assets.playr.io/clips/t3004/0009000000c1a79e-5c6c9e15-d189-4474-bf01-173b74e3d9af/Thumbnail_Large.PNG",
+    "small_thumbnail_url": "http://assets.playr.io/clips/t3004/0009000000c1a79e-5c6c9e15-d189-4474-bf01-173b74e3d9af/Thumbnail_Small.PNG",
+    "url": "http://assets.playr.io/clips/d3004/asset-3544ef7a-5794-4acd-8d83-b0b10f4ea7c2/GameClip-Original.MP4?sv=2012-02-12&st=2014-04-29T09%3A45%3A09Z&se=2014-04-29T10%3A50%3A09Z&sr=c&sp=r&sig=IqppgeJ%2FtjS6CmEugIaSSeuCMz%2FNVbFEizLhX9E4WPc%3D&__gda__=1398768609_4cf091d6cd5339b2d598944ad211abde",
+    "date_expires": "2014-04-29T10:50:09.0452631Z",
+    "name": "",
+    "game_clip_locale": "en-GB"
+  }
+]
+```
+
 ## Titles
 
 > GET /v1/users/:user_id/titles
@@ -290,7 +325,7 @@ $ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/25332748030
 ]
 ```
 
-### Title Achievements
+### Achievements
 
 > GET /v1/users/:user_id/titles/:title_id/achievements
 
@@ -343,41 +378,6 @@ $ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/25332748030
     "users_url": "http://one.playr.io/v1/users/2533274811892679",
     "legacy_platform_friend": true,
     "is_following": true
-  }
-]
-```
-
-# Game Clips
-
-> GET /v1/users/:user_id/game-clips
-
-```sh
-~ curl -H "X-Playr-Key: PUTYOURKEYHERE"  http://one.playr.io/v1/users/2533274803087262/game-clips
-```
-
-```json
-[
-  {
-    "id": "5c6c9e15-d189-4474-bf01-173b74e3d9af",
-    "state": "Published",
-    "date_recorded": "2014-04-28T22:42:55Z",
-    "date_last_modified": "2014-04-28T22:54:44.3051123Z",
-    "type": "UserGenerated",
-    "title": {
-      "id": 1292135256,
-      "name": "Titanfall"
-    },
-    "duration":28,
-    "rating": 0,
-    "rating_count": 0,
-    "views": 0,
-    "saved": false,
-    "large_thumbnail_url": "http://assets.playr.io/clips/t3004/0009000000c1a79e-5c6c9e15-d189-4474-bf01-173b74e3d9af/Thumbnail_Large.PNG",
-    "small_thumbnail_url": "http://assets.playr.io/clips/t3004/0009000000c1a79e-5c6c9e15-d189-4474-bf01-173b74e3d9af/Thumbnail_Small.PNG",
-    "url": "http://assets.playr.io/clips/d3004/asset-3544ef7a-5794-4acd-8d83-b0b10f4ea7c2/GameClip-Original.MP4?sv=2012-02-12&st=2014-04-29T09%3A45%3A09Z&se=2014-04-29T10%3A50%3A09Z&sr=c&sp=r&sig=IqppgeJ%2FtjS6CmEugIaSSeuCMz%2FNVbFEizLhX9E4WPc%3D&__gda__=1398768609_4cf091d6cd5339b2d598944ad211abde",
-    "date_expires": "2014-04-29T10:50:09.0452631Z",
-    "name": "",
-    "game_clip_locale": "en-GB"
   }
 ]
 ```
