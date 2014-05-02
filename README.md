@@ -431,31 +431,6 @@ $ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/25332748030
 }
 ```
 
-### Send a message - DISABLED
-
-> POST /v1/users/:user_id/messages
-
-**Parameters**
-
-|Name|Type|Description|
-|----|----|-----------|
-|gamertags|array|A list of gamertags to send a message to.|
-|body|string|The content of a message.|
-
-**Example**
-
-```
-{
-  "gamertags": ["ejstyles"],
-  "body": "Where's mah sake!"
-}
-```
-
-### Delete a message - DISABLED
-
-> DELETE /v1/users/:user_id/messages/:message_id
-
-
 ## Achievements
 
 > GET /v1/users/:user_id/achievements
