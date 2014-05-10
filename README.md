@@ -112,7 +112,7 @@ $ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/25332748030
    "messages_url": "http://one.playr.io/v1/users/2533274803087262/messages",
    "game_clips_url": "http://one.playr.io/v1/users/2533274803087262/game-clips",
    "recent_players_url": "http://one.playr.io/v1/users/2533274803087262/recent-players",
-   "played_titles_url": "http://one.playr.io/v1/users/2533274803087262/played-titles",
+   "titles_url": "http://one.playr.io/v1/users/2533274803087262/titles",
    "achievements_url": "http://one.playr.io/v1/users/2533274803087262/achievements",
    "status_url": "http://one.playr.io/v1/users/2533274803087262/status",
    "display_pic_url": "http://assets.playr.io/avatars/small/rwljod2fPqLqGP3DBV9F_yK9iuxAt3_MH6tcOnQXTc8rItmG8QAPDKM_fpGigoUIuHtafLWvAgGNZGnkC43ahtEuSFSf.YBpbFdp6D07j8I-",
@@ -224,6 +224,11 @@ $ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/25332748030
 ~ curl -H "X-Playr-Key: PUTYOURKEYHERE"  http://one.playr.io/v1/users/2533274803087262/game-clips
 ```
 
+|Name|Type|Description|
+|----|----|-----------|
+|title|integer| Filter clips by a title id.|
+
+** Response **
 ```json
 [
   {
@@ -255,11 +260,16 @@ $ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/25332748030
 
 > GET /v1/users/:user_id/titles
 
-Returns a list of apps and games that the user has played in the order of most recent.
+Returns a list of apps and games that the user has played in the order of most recent.  Provide an optional `type` param to filter the list.
 
 ```sh
-$ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/2533274803087262/played-titles
+$ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/2533274803087262/titles
 ```
+
+|Name|Type|Description|
+|----|----|-----------|
+|type|string| 'App' or 'Game'|
+
 
 **Response**
 
@@ -270,14 +280,18 @@ $ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/25332748030
     "name": "Amazon Instant Video",
     "date_played": "2014-04-28T22:54:57.3313429Z",
     "stats_url": "http://one.playr.io/v1/users/2533274803087262/stats/1509068581",
-    "achievements_url": "http://one.playr.io/v1/users/2533274803087262/achievements/1509068581"
+    "achievements_url": "http://one.playr.io/v1/users/2533274803087262/achievements/1509068581",
+    "type":"App",
+    "image_url":"http://assets.playr.io/covers/8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTcQ0JPReX7E0ewqTJ3MeiS_tUzJnRtr9m1P_WrX3f5c3ZzJeUxwLFM.s9PH.3whEYkdo0i.pcQdGMZDXbJQFn9IfXXMDzOJI4B0OqMG.cXvTWNKqrTvbCycEyn0xdWQU_hpO80t3l4JZiOMEGvmmXdqJaiCzVXTuHt_8NpoGRULyc-"
   },
   {
    "id": 1292135256,
    "name": "Titanfall",
    "date_played": "2014-04-28T22:54:32.055393Z",
    "stats_url": "http://one.playr.io/v1/users/2533274803087262/stats/1292135256",
-   "achievements_url": "http://one.playr.io/v1/users/2533274803087262/achievements/1292135256"
+   "achievements_url": "http://one.playr.io/v1/users/2533274803087262/achievements/1292135256",
+   "type":"Game",
+   "image_url":"http://assets.playr.io/covers/8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTchFo8Iv.leBn2QtTr0OOkq5GRmuBEGN.mUZgQeTU1sztFu9Em3E96iKUjUMy8Du.FEzd_xJCwHO9OPWVHmKQKLuczXyMqZ9IgBgG7OOBPgUJTRU77wE.pBNrZnzXa9voVpwxzM9mtZXgFbrGq9srOor0tPPTBDBm3GFxkCT8xCXw-"
   }
 ]
 ```
@@ -289,7 +303,7 @@ Stats can vary from title to title, also their values are somewhat arbitrary.  B
 > GET /v1/users/:user_id/titles/:title_id/stats
 
 ```sh
-$ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/2533274803087262/stats/1292135256
+$ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/2533274803087262/titles/1292135256/stats
 ```
 
 ```json
@@ -330,7 +344,7 @@ $ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/25332748030
 > GET /v1/users/:user_id/titles/:title_id/achievements
 
 ```sh
-$ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/2533274803087262/achievements/1509068581
+$ curl -H "X-Playr-Key: PUTYOURKEYHERE" http://one.playr.io/v1/users/2533274803087262/titles/1509068581/achievements
 ```
 
 ```json
